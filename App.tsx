@@ -1,58 +1,47 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Button,
-  Platform,
-} from 'react-native';
+import { StyleSheet, View, Text, Button, Platform } from 'react-native';
 
-import  RNAppylar, {
-  RNAppylarAdType,
-  RNAppylarView
-} from 'react-native-appylar-sdk';
+import Appylar, { AdType, AppylarBannerView } from 'react-native-appylar-sdk';
 
 export default function App() {
   const [show, setShow] = useState(false);
   const appylarViewRef = useRef(null);
 
   useEffect(() => {
-    RNAppylar.eventEmitterAppylar.addListener('onInitialized', onInitialized);
-    RNAppylar.eventEmitterAppylar.addListener('onError', onError);
-    RNAppylar.eventEmitterAppylar.addListener('onBannerShown', onBannerShown);
-    RNAppylar.eventEmitterAppylar.addListener('onNoBanner', onNoBanner);
-    RNAppylar.eventEmitterAppylar.addListener(
+    Appylar.eventEmitter.addListener('onInitialized', onInitialized);
+    Appylar.eventEmitter.addListener('onError', onError);
+    Appylar.eventEmitter.addListener('onBannerShown', onBannerShown);
+    Appylar.eventEmitter.addListener('onNoBanner', onNoBanner);
+    Appylar.eventEmitter.addListener(
       'onInterstitialShown',
       onInterstitialShown
     );
-    RNAppylar.eventEmitterAppylar.addListener(
+    Appylar.eventEmitter.addListener(
       'onInterstitialClosed',
       onInterstitialClosed
     );
-    RNAppylar.eventEmitterAppylar.addListener(
-      'onNoInterstitial',
-      onNoInterstitial
-    );
+    Appylar.eventEmitter.addListener('onNoInterstitial', onNoInterstitial);
     initialize();
     return () => {
-      RNAppylar.eventEmitterAppylar.removeAllListeners('onInitialized');
-      RNAppylar.eventEmitterAppylar.removeAllListeners('onError');
-      RNAppylar.eventEmitterAppylar.removeAllListeners('onBannerShown');
-      RNAppylar.eventEmitterAppylar.removeAllListeners('onNoBanner');
-      RNAppylar.eventEmitterAppylar.removeAllListeners('onInterstitialShown');
-      RNAppylar.eventEmitterAppylar.removeAllListeners('onInterstitialClosed');
-      RNAppylar.eventEmitterAppylar.removeAllListeners('onNoInterstitial');
+      Appylar.eventEmitter.removeAllListeners('onInitialized');
+      Appylar.eventEmitter.removeAllListeners('onError');
+      Appylar.eventEmitter.removeAllListeners('onBannerShown');
+      Appylar.eventEmitter.removeAllListeners('onNoBanner');
+      Appylar.eventEmitter.removeAllListeners('onInterstitialShown');
+      Appylar.eventEmitter.removeAllListeners('onInterstitialClosed');
+      Appylar.eventEmitter.removeAllListeners('onNoInterstitial');
     };
   }, []);
 
   const initialize = async () => {
     console.log('initialize111');
-    var adTypes = [RNAppylarAdType.banner, RNAppylarAdType.interstitial];
+    var adTypes = [AdType.banner, AdType.interstitial];
     var appKey =
       Platform.OS === 'android'
         ? 'oq8KqmAv7CmWST23FS12-g'
         : 'knZidxcpufCJLTfwJbbm4w';
-    await RNAppylar.initialize(appKey, adTypes, false);
+    await Appylar.initialize(appKey, adTypes, false);
+    await setParameters();
   };
 
   const onInitialized = (eventObj: any) => {
@@ -84,6 +73,9 @@ export default function App() {
   };
 
   const showBanner = async () => {
+    // if(appylarViewRef.canShowAd()){
+    //   setShow(true);
+    // }
     setShow(true);
   };
 
@@ -92,16 +84,17 @@ export default function App() {
   };
 
   const showInterstitial = async () => {
-    await RNAppylar.showAd();
+    let canShowInterstitial = Appylar.canShowAd();
+    console.log('canShowInterstitial', canShowInterstitial);
+    await Appylar.showAd();
   };
 
-  // const setParameters = async () => {
-  //   let obj = {
-  //     banner_height: ['90'],
-  //     age_restriction: ['18'],
-  //   };
-  //   RNAppylar.setParameters(obj);
-  // };
+  const setParameters = async () => {
+    let obj = {
+      banner_height: ['90']
+    };
+    Appylar.setParameters(obj);
+  };
 
   return (
     <View style={styles.container}>
@@ -125,9 +118,26 @@ export default function App() {
           color="#841584"
         />
         <View style={styles.emptyView} />
+        <Button
+          onPress={() => setParameters()}
+          title="SET PARAMETERS"
+          color="#841584"
+        />
       </View>
       <View style={styles.containerBanner}>
-        <RNAppylarView
+        <AppylarBannerView
+          show={show}
+          placementId=""
+          style={styles.box}
+          ref={appylarViewRef}
+        />
+        <AppylarBannerView
+          show={show}
+          placementId=""
+          style={styles.box}
+          ref={appylarViewRef}
+        />
+        <AppylarBannerView
           show={show}
           placementId=""
           style={styles.box}
@@ -162,6 +172,6 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   box: {
-    marginVertical: 50
+    marginVertical: 50,
   },
 });
