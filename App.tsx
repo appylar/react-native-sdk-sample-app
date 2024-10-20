@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, View, Text, Button, Platform } from 'react-native';
 
-import Appylar, { AdType, AppylarBannerView } from 'react-native-appylar-sdk';
+import Appylar, { AdType, AppylarBannerView } from '@appylar/react-native-appylar-sdk';
 
 export default function App() {
   const [show, setShow] = useState(false);
