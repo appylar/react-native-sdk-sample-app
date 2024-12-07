@@ -38,8 +38,8 @@ export default function App() {
     var adTypes = [AdType.banner, AdType.interstitial];
     var appKey =
       Platform.OS === 'android'
-        ? 'oq8KqmAv7CmWST23FS12-g'
-        : 'knZidxcpufCJLTfwJbbm4w';
+        ? '<YOUR_ANDROID_APP_KEY>'
+        : '<YOUR_IOS_APP_KEY>';
     await Appylar.initialize(appKey, adTypes, false);
     await setParameters();
   };
