@@ -34,14 +34,12 @@ export default function App() {
   }, []);
 
   const initialize = async () => {
-    console.log('initialize111');
     var adTypes = [AdType.banner, AdType.interstitial];
     var appKey =
       Platform.OS === 'android'
         ? '<YOUR_ANDROID_APP_KEY>'
         : '<YOUR_IOS_APP_KEY>';
-    await Appylar.initialize(appKey, adTypes, false);
-    await setParameters();
+    await Appylar.initialize(appKey, adTypes, true);
   };
 
   const onInitialized = (eventObj: any) => {
@@ -73,9 +71,6 @@ export default function App() {
   };
 
   const showBanner = async () => {
-    // if(appylarViewRef.canShowAd()){
-    //   setShow(true);
-    // }
     setShow(true);
   };
 
@@ -87,13 +82,6 @@ export default function App() {
     let canShowInterstitial = Appylar.canShowAd();
     console.log('canShowInterstitial', canShowInterstitial);
     await Appylar.showAd();
-  };
-
-  const setParameters = async () => {
-    let obj = {
-      banner_height: ['90']
-    };
-    Appylar.setParameters(obj);
   };
 
   return (
@@ -115,12 +103,6 @@ export default function App() {
         <Button
           onPress={() => showInterstitial()}
           title="SHOW INTERSTITIAL"
-          color="#841584"
-        />
-        <View style={styles.emptyView} />
-        <Button
-          onPress={() => setParameters()}
-          title="SET PARAMETERS"
           color="#841584"
         />
       </View>
