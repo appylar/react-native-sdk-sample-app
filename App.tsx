@@ -79,9 +79,9 @@ export default function App() {
   };
 
   const showInterstitial = async () => {
-    let canShowInterstitial = Appylar.canShowAd();
+    let canShowInterstitial = Appylar.canShowInterstitialAd();
     console.log('canShowInterstitial', canShowInterstitial);
-    await Appylar.showAd();
+    await Appylar.showInterstitialAd();
   };
 
   return (
@@ -107,18 +107,6 @@ export default function App() {
         />
       </View>
       <View style={styles.containerBanner}>
-        <AppylarBannerView
-          show={show}
-          placementId=""
-          style={styles.box}
-          ref={appylarViewRef}
-        />
-        <AppylarBannerView
-          show={show}
-          placementId=""
-          style={styles.box}
-          ref={appylarViewRef}
-        />
         <AppylarBannerView
           show={show}
           placementId=""
