@@ -47,7 +47,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		70E555692D0EED6600610B47 /* Exceptions for "Assets" folder in "AppylarReactNativeSampleApp" target */ = {
+		70E555692D0EED6600610B47 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Media.xcassets,
@@ -57,18 +57,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		70E555662D0EECAD00610B47 /* Assets */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				70E555692D0EED6600610B47 /* Exceptions for "Assets" folder in "AppylarReactNativeSampleApp" target */,
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
+		70E555662D0EECAD00610B47 /* Assets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (70E555692D0EED6600610B47 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Assets; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -505,7 +494,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ea.realracing3.inc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appylar.reactnativesampleapp;
 				PRODUCT_NAME = AppylarReactNativeSampleApp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -532,7 +521,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ea.realracing3.inc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appylar.reactnativesampleapp;
 				PRODUCT_NAME = AppylarReactNativeSampleApp;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
