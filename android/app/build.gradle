@@ -76,7 +76,7 @@ android {
 
     namespace "com.appylarreactnativesampleapp"
     defaultConfig {
-        applicationId "com.appylarreactnativesampleapp"
+        applicationId "com.appylar.reactnativesampleapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
