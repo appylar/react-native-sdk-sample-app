@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, Text, Button, Platform } from 'react-native';
+import { StyleSheet, View, Text, Button, Platform, Image } from 'react-native';
 
 import Appylar, { AdType, AppylarBannerView } from '@appylar/react-native-appylar-sdk';
 
@@ -85,25 +85,31 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.containerButtons}>
+    <View style={styles.containerMain}>
+      <View style={styles.containerItem}>
+        <Image style={styles.logo}
+                  source={require("./assets/appylar_logo_icon.png")}
+                />
+      </View>
+      <View style={styles.containerItem}>
+        <View style={styles.emptyView} />
         <Text style={styles.heading}>Appylar Sample App</Text>
         <Button
           onPress={() => showBanner()}
           title="SHOW BANNER"
-          color="#841584"
+          color="#7590ba"
         />
         <View style={styles.emptyView} />
         <Button
           onPress={() => hideBanner()}
           title="HIDE BANNER"
-          color="#841584"
+          color="#7590ba"
         />
         <View style={styles.emptyView} />
         <Button
           onPress={() => showInterstitial()}
           title="SHOW INTERSTITIAL"
-          color="#841584"
+          color="#7590ba"
         />
       </View>
       <View style={styles.containerBanner}>
@@ -119,29 +125,38 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerMain: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ffffff',
   },
-  containerButtons: {
+  containerItem: {
     flex: 1,
     justifyContent: 'center',
   },
   emptyView: {
     height: 10,
   },
+  emptyTopView: {
+    height: 50,
+  },
   containerBanner: {
     flex: 1,
     justifyContent: 'flex-end',
   },
   heading: {
-    fontSize: 20,
+    fontSize: 26,
     textAlign: 'center',
     margin: 10,
   },
   box: {
     marginVertical: 50,
   },
+  logo: {
+    width: 80,
+    height: 80,
+    alignContent: 'center',
+    alignItems: 'center',
+  }
 });
