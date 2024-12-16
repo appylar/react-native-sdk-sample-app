@@ -93,7 +93,6 @@ export default function App() {
       </View>
       <View style={styles.containerItem}>
         <View style={styles.emptyView} />
-        <Text style={styles.heading}>Appylar Sample App</Text>
         <Button
           onPress={() => showBanner()}
           title="SHOW BANNER"

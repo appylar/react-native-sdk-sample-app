@@ -47,7 +47,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		70E555692D0EED6600610B47 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		70E555692D0EED6600610B47 /* Exceptions for "Assets" folder in "AppylarReactNativeSampleApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Media.xcassets,
@@ -57,7 +57,18 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		70E555662D0EECAD00610B47 /* Assets */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (70E555692D0EED6600610B47 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Assets; sourceTree = "<group>"; };
+		70E555662D0EECAD00610B47 /* Assets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				70E555692D0EED6600610B47 /* Exceptions for "Assets" folder in "AppylarReactNativeSampleApp" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
