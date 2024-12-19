@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, Text, Button, Platform, Image } from 'react-native';
+import { StyleSheet, View, Text, Button, Platform, Pressable } from 'react-native';
 
 import Appylar, { AdType, AppylarBannerView } from '@appylar/react-native-appylar-sdk';
 
@@ -87,43 +87,43 @@ export default function App() {
   return (
     <View style={styles.containerMain}>
       <View style={styles.containerItem}>
-        <Image style={styles.logo}
-                  source={require("./assets/appylar_logo_icon.png")}
-                />
-      </View>
-      <View style={styles.containerItem}>
-        <View style={styles.emptyView} />
-        <Button
-          onPress={() => showBanner()}
-          title="SHOW BANNER"
-          color="#7590ba"
-        />
-        <View style={styles.emptyView} />
-        <Button
-          onPress={() => hideBanner()}
-          title="HIDE BANNER"
-          color="#7590ba"
-        />
-        <View style={styles.emptyView} />
-        <Button
-          onPress={() => showInterstitial()}
-          title="SHOW INTERSTITIAL"
-          color="#7590ba"
-        />
-      </View>
-      <View style={styles.containerBanner}>
-        <AppylarBannerView
-          show={show}
-          placementId=""
-          style={styles.box}
-          ref={appylarViewRef}
-        />
+        <Text style={styles.heading}>Appylar React Native Sample App</Text>
+        <Pressable style={styles.button} onPress={() => showBanner()}>
+          <Text style={styles.buttonText}>SHOW BANNER</Text>
+        </Pressable>  
+        <Pressable style={styles.button} onPress={() => hideBanner()}>
+          <Text style={styles.buttonText}>HIDE BANNER</Text>
+        </Pressable>      
+        <Pressable style={styles.button} onPress={() => showInterstitial()}>
+          <Text style={styles.buttonText}>SHOW INTERSTITIAL</Text>
+        </Pressable>
+        </View>
+        <View style={styles.containerBanner}>
+          <AppylarBannerView
+            show={show}
+            placementId=""
+            style={styles.box}
+            ref={appylarViewRef}
+          />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  button: {
+    borderRadius: 8,
+    backgroundColor: "#7590ba",
+    marginVertical: 7,
+    width: 200
+  },
+  buttonText: {
+    color: "#ffffff",
+    textAlign: 'center',
+    padding: 5,
+    marginVertical: 5
+  },
+
   containerMain: {
     flex: 1,
     justifyContent: 'center',
@@ -133,29 +133,19 @@ const styles = StyleSheet.create({
   containerItem: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  emptyView: {
-    height: 10,
-  },
-  emptyTopView: {
-    height: 50,
-  },
-  containerBanner: {
-    flex: 1,
+
+  containerBanner: {    
     justifyContent: 'flex-end',
   },
   heading: {
-    fontSize: 26,
+    fontSize: 32,
     textAlign: 'center',
-    margin: 10,
+    marginBottom: 30,
+    color: "#293642",
   },
   box: {
     marginVertical: 50,
   },
-  logo: {
-    width: 80,
-    height: 80,
-    alignContent: 'center',
-    alignItems: 'center',
-  }
 });
