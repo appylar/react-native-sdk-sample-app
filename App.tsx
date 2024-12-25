@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     color: "#293642",
   },
   box: {
-    marginVertical: 50,
+    height: 100, 
+    marginVertical: 0
   },
 });
