@@ -6,6 +6,7 @@ import Appylar, { AdType, AppylarBannerView } from '@appylar/react-native-appyla
 export default function App() {
   const [show, setShow] = useState(false);
   const appylarViewRef = useRef(null);
+  const [statusText, setStatusText] = useState('Initializing the SDK, please wait.');
 
   useEffect(() => {
     Appylar.eventEmitter.addListener('onInitialized', onInitialized);
@@ -44,30 +45,37 @@ export default function App() {
 
   const onInitialized = (eventObj: any) => {
     console.log('App.tsx onInitialized', eventObj);
+    setStatusText("The SDK is initialized.");
   };
 
   const onError = (eventObj: any) => {
     console.log('App.tsx onError', eventObj);
+    setStatusText("Error: " + eventObj);
   };
 
   const onBannerShown = (eventObj: any) => {
     console.log('App.tsx onBannerShown', eventObj);
+    setStatusText("");
   };
 
   const onNoBanner = (eventObj: any) => {
     console.log('App.tsx onNoBanner', eventObj);
+    setStatusText("No more banners in the buffer,\nplease retry again after a minute.");
   };
 
   const onInterstitialShown = (eventObj: any) => {
     console.log('App.tsx onInterstitialShown', eventObj);
+    setStatusText("");
   };
 
   const onInterstitialClosed = (eventObj: any) => {
     console.log('App.tsx onInterstitialClosed', eventObj);
+    setStatusText("");
   };
 
   const onNoInterstitial = (eventObj: any) => {
     console.log('App.tsx onNoInterstitial', eventObj);
+    setStatusText("No more interstitials in the buffer,\nplease retry again after a minute.");
   };
 
   const showBanner = async () => {
@@ -97,6 +105,7 @@ export default function App() {
         <Pressable style={styles.button} onPress={() => showInterstitial()}>
           <Text style={styles.buttonText}>SHOW INTERSTITIAL</Text>
         </Pressable>
+        <Text style={styles.statusText}>{statusText}</Text>
         </View>
         <View style={styles.containerBanner}>
           <AppylarBannerView
@@ -143,6 +152,12 @@ const styles = StyleSheet.create({
     fontSize: 32,
     textAlign: 'center',
     marginBottom: 30,
+    color: "#293642",
+  },
+  statusText: {
+    marginTop: 20,
+    fontSize: 14,
+    textAlign: 'center',
     color: "#293642",
   },
   box: {
