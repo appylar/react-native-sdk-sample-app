@@ -6,7 +6,7 @@ import Appylar, { AdType, AppylarBannerView } from '@appylar/react-native-appyla
 export default function App() {
   const [show, setShow] = useState(false);
   const appylarViewRef = useRef(null);
-  const [statusText, setStatusText] = useState('Initializing the SDK, please wait.');
+  const [statusText, setStatusText] = useState('Initializing the SDK, please wait...');
 
   useEffect(() => {
     Appylar.eventEmitter.addListener('onInitialized', onInitialized);
@@ -60,7 +60,7 @@ export default function App() {
 
   const onNoBanner = (eventObj: any) => {
     console.log('App.tsx onNoBanner', eventObj);
-    setStatusText("No more banners in the buffer,\nplease retry again after a minute.");
+    setStatusText("No banners in the buffer.");
   };
 
   const onInterstitialShown = (eventObj: any) => {
@@ -75,7 +75,7 @@ export default function App() {
 
   const onNoInterstitial = (eventObj: any) => {
     console.log('App.tsx onNoInterstitial', eventObj);
-    setStatusText("No more interstitials in the buffer,\nplease retry again after a minute.");
+    setStatusText("No interstitials in the buffer.");
   };
 
   const showBanner = async () => {
