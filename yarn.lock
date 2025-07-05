@@ -15,10 +15,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@appylar/react-native-appylar-sdk@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@appylar/react-native-appylar-sdk/-/react-native-appylar-sdk-2.0.2.tgz#3a0da129b6af599b544da8c049fc6adae0f60c6f"
-  integrity sha512-VNnvjigWBxIeAEgS9pX6O49SiMnD5SfGOX02YYnC8huRXL1PJNtdR8AdlI/2427EkncGoXTiCHPKYqdeTHmjHw==
+"@appylar/react-native-appylar-sdk@^2.0.0":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@appylar/react-native-appylar-sdk/-/react-native-appylar-sdk-2.0.3.tgz#5e599c35bcc5b7fd9e9865494ad770fa777b3ca9"
+  integrity sha512-LVoVSInn75H3D+wSFwyqYe0uxlTXy7m8b9OAkCryQEAb+iZ+tqra66YFjupkAfcW9a7ehZsG2IDpyjswi0K3ig==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.23.5":
   version "7.23.5"

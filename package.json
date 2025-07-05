@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@appylar/react-native-appylar-sdk": "*",
+    "@appylar/react-native-appylar-sdk": "^2.0.0",
     "react": "18.2.0",
     "react-native": "0.73.2"
   },
